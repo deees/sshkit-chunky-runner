@@ -1,9 +1,8 @@
 require 'sshkit/chunky/runner/version'
 
-module Sshkit
+module SSHKit
   module Chunky
     module Runner
-      # Your code goes here...
     end
   end
 end

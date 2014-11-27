@@ -1,4 +1,4 @@
-module Sshkit
+module SSHKit
   module Chunky
     module Runner
       VERSION = '0.0.1'

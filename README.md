@@ -1,4 +1,4 @@
-# Sshkit::Chunky::Runner
+# SSHKit::Chunky::Runner
 
 TODO: Write a gem description
 

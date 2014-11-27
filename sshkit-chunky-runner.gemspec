@@ -5,7 +5,7 @@ require 'sshkit/chunky/runner/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'sshkit-chunky-runner'
-  spec.version       = Sshkit::Chunky::Runner::VERSION
+  spec.version       = SSHKit::Chunky::Runner::VERSION
   spec.authors       = ['Tomas Brazys']
   spec.email         = ['tomas.brazys@gmail.com']
   spec.summary       = 'Run ssh commands in chunks'
