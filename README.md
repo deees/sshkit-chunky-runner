@@ -1,6 +1,7 @@
 # SSHKit::Chunky::Runner
 
-TODO: Write a gem description
+Runs ssh commands in few chunks. It divides hosts into static number of chunks,
+you just need to specify how many chunks you need.
 
 ## Installation
 
@@ -20,7 +21,36 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+hosts = %w(
+  1.example.com
+  2.example.com
+  3.example.com
+  4.example.com
+  5.example.com
+  6.example.com
+  7.example.com
+  8.example.com
+)
+on hosts, in: :chunks, count: 3, wait: 5 do
+  within '/opt/sites/example.com' do
+    as :deploy  do
+      with rails_env: :production do
+        rake 'assets:precompile'
+      end
+    end
+  end
+end
+```
+
+This will divide all hosts into 3 groups.
+
+First group will have `1.example.com`, `2.example.com`, `3.example.com`, second
+group - `4.example.com`, `5.example.com`, `6.example.com`, and the last one -
+`7.example.com`, `8.example.com`.
+
+If you add more hosts, each group then will have more hosts. Number of groups
+remain the same.
 
 ## Contributing
 
