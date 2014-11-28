@@ -1,6 +1,7 @@
 # SSHKit::Chunky::Runner
 
 [![Build Status](https://travis-ci.org/deees/sshkit-chunky-runner.svg)](https://travis-ci.org/deees/sshkit-chunky-runner)
+[![Code Climate](https://codeclimate.com/github/deees/sshkit-chunky-runner/badges/gpa.svg)](https://codeclimate.com/github/deees/sshkit-chunky-runner)
 
 Runs ssh commands in few chunks. It divides hosts into static number of chunks,
 you just need to specify how many chunks you need.
