@@ -1,3 +1,4 @@
+require 'sshkit'
 require 'sshkit/chunky/runner/version'
 require 'sshkit/chunky/runner/coordinator'
 require 'sshkit/chunky/runner/chunks'
