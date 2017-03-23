@@ -12,7 +12,7 @@ module SSHKit
         when :groups   then Runner::Group
         when :chunks   then SSHKit::Chunky::Runner::Chunks # <- added
         else
-          raise RuntimeError, "Don't know how to handle run style #{options[:in].inspect}"
+          options[:in]
         end.new(hosts, options, &block).execute
       else
         Runner::Null.new(hosts, options, &block).execute
