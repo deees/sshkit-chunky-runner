@@ -6,19 +6,18 @@ describe SSHKit::Coordinator do
     let(:block_to_run) { ->(host) { execute "echo #{Time.now.to_i}" } }
 
     subject(:results) do
-      output.lines.map { |value| value.split(' ').last.to_i }
+      output.lines.map { |value| value.split(' echo ').last.to_i }
     end
 
     before do
       SSHKit.config.backend = SSHKit::Backend::Printer
+      SSHKit.config.output = SSHKit::Formatter::SimpleText.new(output)
     end
 
     context 'with default options' do
       before do
-        SSHKit.capture_output output do
-          SSHKit::Coordinator.new(%w{1.example.com 2.example.com})
-            .each(&block_to_run)
-        end
+        SSHKit::Coordinator.new(%w{1.example.com 2.example.com})
+          .each(&block_to_run)
       end
 
       it 'returns parallel results' do
@@ -29,10 +28,8 @@ describe SSHKit::Coordinator do
 
     context 'with chunks options' do
       before do
-        SSHKit.capture_output output do
-          SSHKit::Coordinator.new(%w{1.example.com 2.example.com})
-            .each(in: :chunks, count: 2, &block_to_run)
-        end
+        SSHKit::Coordinator.new(%w{1.example.com 2.example.com})
+          .each(in: :chunks, count: 2, &block_to_run)
       end
 
       it 'returns sequential results' do
